@@ -181,8 +181,8 @@ V00001,Toyota,Camry,2024,95000,"Hybrid,Safety Sense,Leather",5,https://...,Relia
 ### Admin Dashboard
 
 **Login Credentials:**
-- Username: `admin`
-- Password: `admin123`
+- Username: `XXXXXXn`
+- Password: `XXXXXXXXXX`
 
 1. **Upload Data**
    - Select file (CSV/JSON/XML/Excel)
