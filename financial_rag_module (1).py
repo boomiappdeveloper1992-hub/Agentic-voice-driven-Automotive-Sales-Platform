@@ -1,0 +1,1166 @@
+"""
+Advanced Multi-PDF RAG Financial Analysis Module - HUGGING FACE COMPATIBLE
+✅ Extractive QA (No Hallucination)
+✅ Auto-generated Q&A Index with JSON storage
+✅ Pattern Matching
+✅ Multi-PDF Support
+✅ Accurate Answer Retrieval
+✅ HUGGING FACE SPACES COMPATIBLE
+"""
+
+import json
+import logging
+import re
+import time
+import uuid
+import os
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+from dataclasses import dataclass
+
+# Core dependencies
+try:
+    import numpy as np
+    import torch
+    from sentence_transformers import SentenceTransformer
+    from rank_bm25 import BM25Okapi
+    from nltk.tokenize import sent_tokenize, word_tokenize
+    from nltk.corpus import stopwords
+    import PyPDF2
+    import pdfplumber
+except ImportError as e:
+    raise ImportError(
+        f"Missing required dependency: {e}. "
+        "Please install: pip install torch sentence-transformers rank-bm25 pdfplumber PyPDF2 nltk numpy"
+    )
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# ==========================================
+# HUGGING FACE PATHS CONFIGURATION
+# ==========================================
+
+def get_data_folder():
+    """Get the appropriate data folder for Hugging Face or local environment"""
+    # Check if running on Hugging Face Spaces
+    if os.path.exists("/data"):
+        # Hugging Face Spaces persistent storage
+        data_folder = "/data/pdfs"
+    elif os.path.exists("./data"):
+        # Local development
+        data_folder = "./data"
+    else:
+        # Fallback - create in current directory
+        data_folder = "./financial_pdfs"
+    
+    # Create folder if it doesn't exist
+    os.makedirs(data_folder, exist_ok=True)
+    logger.info(f"📂 Using data folder: {data_folder}")
+    return data_folder
+
+def get_output_folder():
+    """Get the appropriate output folder for JSON files - REPOSITORY FIRST"""
+    # PRIORITY 1: Save to repository root (PERSISTENT & FREE!)
+    # This works on both local and Hugging Face
+    output_folder = "."  # Current directory (repository root)
+    
+    try:
+        # Test if we can write to current directory
+        test_file = os.path.join(output_folder, ".test_write_permission")
+        with open(test_file, 'w') as f:
+            f.write("test")
+        os.remove(test_file)
+        
+        logger.info(f"📁 Using output folder: {output_folder} (Repository Root - Persistent!)")
+        return output_folder
+        
+    except Exception as e:
+        logger.warning(f"⚠️ Cannot write to repository root: {e}")
+        
+        # PRIORITY 2: Try /data/outputs (paid persistent storage)
+        if os.path.exists("/data"):
+            output_folder = "/data/outputs"
+            try:
+                os.makedirs(output_folder, exist_ok=True)
+                logger.info(f"📁 Using output folder: {output_folder} (Persistent Storage)")
+                return output_folder
+            except:
+                pass
+        
+        # PRIORITY 3: Fallback to /tmp (temporary - will be lost on restart)
+        if os.path.exists("/tmp"):
+            output_folder = "/tmp/outputs"
+            os.makedirs(output_folder, exist_ok=True)
+            logger.warning(f"⚠️ Using TEMPORARY folder: {output_folder}")
+            logger.warning(f"💡 Files will be LOST on restart!")
+            return output_folder
+        
+        # PRIORITY 4: Local fallback
+        output_folder = "./outputs"
+        os.makedirs(output_folder, exist_ok=True)
+        logger.info(f"📁 Using output folder: {output_folder}")
+        return output_folder
+
+# ==========================================
+# NLTK DATA AUTO-SETUP
+# ==========================================
+
+def ensure_nltk_data():
+    """Auto-download required NLTK data if missing"""
+    import nltk
+    import ssl
+    
+    # Fix SSL issues
+    try:
+        _create_unverified_https_context = ssl._create_unverified_context
+    except AttributeError:
+        pass
+    else:
+        ssl._create_default_https_context = _create_unverified_https_context
+    
+    # Check and download required packages
+    packages = {
+        'punkt': 'tokenizers/punkt',
+        'punkt_tab': 'tokenizers/punkt_tab/english',
+        'stopwords': 'corpora/stopwords'
+    }
+    
+    for package, path in packages.items():
+        try:
+            nltk.data.find(path)
+        except LookupError:
+            logger.info(f"📥 Downloading NLTK {package}...")
+            nltk.download(package, quiet=True)
+            logger.info(f"   ✅ {package} downloaded")
+
+# NLTK setup is now lazy - only runs when needed
+# This prevents import errors if NLTK download fails
+_nltk_initialized = False
+
+def _ensure_nltk_initialized():
+    """Lazy NLTK initialization - only runs once when needed"""
+    global _nltk_initialized
+    if not _nltk_initialized:
+        try:
+            ensure_nltk_data()
+            _nltk_initialized = True
+            logger.info("✅ NLTK data ready")
+        except Exception as e:
+            logger.warning(f"⚠️ NLTK setup issue: {e}")
+            # Continue anyway - will try again later if needed
+
+# ==========================================
+# DATA STRUCTURES
+# ==========================================
+
+@dataclass
+class PDFMetadata:
+    """Metadata for each loaded PDF"""
+    filename: str
+    filepath: str
+    total_pages: int
+    file_size_mb: float
+    extraction_method: str
+    chunks_count: int
+    total_tokens: int
+
+@dataclass
+class DocChunk:
+    """Document chunk with source tracking"""
+    id: str
+    text: str
+    section: str
+    chunk_size: int
+    position: int
+    token_count: int
+    source_type: str
+    source_file: str
+    page_number: Optional[int] = None
+
+# ==========================================
+# PDF PROCESSING UTILITIES
+# ==========================================
+
+class PDFProcessor:
+    """Advanced Multi-PDF text extraction"""
+    
+    @staticmethod
+    def get_file_size_mb(filepath: str) -> float:
+        """Get file size in MB"""
+        try:
+            return os.path.getsize(filepath) / (1024 * 1024)
+        except:
+            return 0.0
+    
+    @staticmethod
+    def extract_text_pdfplumber(pdf_path: str) -> Dict[int, str]:
+        """Extract text using pdfplumber (preferred - better quality)"""
+        try:
+            text_by_page = {}
+            with pdfplumber.open(pdf_path) as pdf:
+                for page_num, page in enumerate(pdf.pages, 1):
+                    text = page.extract_text()
+                    if text and text.strip():
+                        text_by_page[page_num] = text
+                    
+                    # Extract tables
+                    tables = page.extract_tables()
+                    if tables:
+                        table_text = "\n".join(
+                            " | ".join(str(cell) if cell else "" for cell in row)
+                            for table in tables
+                            for row in table
+                        )
+                        if table_text.strip():
+                            current = text_by_page.get(page_num, "")
+                            text_by_page[page_num] = current + "\n" + table_text
+                
+                return text_by_page
+                
+        except Exception as e:
+            logger.error(f"pdfplumber extraction failed for {pdf_path}: {e}")
+            return {}
+    
+    @staticmethod
+    def load_single_pdf(pdf_path: str) -> Tuple[str, int, str]:
+        """Load and extract text from a single PDF"""
+        if not os.path.exists(pdf_path):
+            logger.error(f"❌ PDF not found: {pdf_path}")
+            return "", 0, "none"
+        
+        logger.info(f"📖 Loading: {os.path.basename(pdf_path)}")
+        
+        # Use pdfplumber
+        text_by_page = PDFProcessor.extract_text_pdfplumber(pdf_path)
+        extraction_method = "pdfplumber"
+        
+        if not text_by_page:
+            logger.error(f"❌ Failed to extract text from {pdf_path}")
+            return "", 0, "failed"
+        
+        # Combine all pages
+        combined_text = "\n\n".join(
+            f"[PAGE {page_num}]\n{text}"
+            for page_num, text in sorted(text_by_page.items())
+        )
+        
+        total_pages = len(text_by_page)
+        char_count = len(combined_text)
+        
+        logger.info(f"   ✅ {total_pages} pages, {char_count:,} chars extracted")
+        
+        return combined_text, total_pages, extraction_method
+    
+    @staticmethod
+    def load_all_pdfs_from_folder(folder_path: str) -> Tuple[Dict[str, str], List[PDFMetadata]]:
+        """Load ALL PDF files from a folder"""
+        logger.info("="*60)
+        logger.info(f"📂 Scanning folder: {folder_path}")
+        logger.info("="*60)
+        
+        if not os.path.exists(folder_path):
+            logger.warning(f"⚠️ Folder not found: {folder_path}")
+            os.makedirs(folder_path, exist_ok=True)
+            logger.info(f"✅ Created folder: {folder_path}")
+        
+        # Find all PDF files
+        pdf_files = list(Path(folder_path).glob("*.pdf"))
+        
+        if not pdf_files:
+            logger.warning(f"⚠️ No PDF files found in {folder_path}")
+            logger.info(f"💡 Please upload PDFs to: {folder_path}")
+            return {}, []
+        
+        logger.info(f"📚 Found {len(pdf_files)} PDF file(s)")
+        
+        pdf_texts = {}
+        pdf_metadata_list = []
+        
+        for idx, pdf_path in enumerate(pdf_files, 1):
+            filename = pdf_path.name
+            logger.info(f"\n[{idx}/{len(pdf_files)}] Processing: {filename}")
+            
+            try:
+                combined_text, total_pages, extraction_method = PDFProcessor.load_single_pdf(str(pdf_path))
+                
+                if combined_text:
+                    pdf_texts[filename] = combined_text
+                    
+                    metadata = PDFMetadata(
+                        filename=filename,
+                        filepath=str(pdf_path),
+                        total_pages=total_pages,
+                        file_size_mb=PDFProcessor.get_file_size_mb(str(pdf_path)),
+                        extraction_method=extraction_method,
+                        chunks_count=0,
+                        total_tokens=len(combined_text.split())
+                    )
+                    pdf_metadata_list.append(metadata)
+                else:
+                    logger.warning(f"   ⚠️ Skipped (no text extracted)")
+                    
+            except Exception as e:
+                logger.error(f"   ❌ Error processing {filename}: {e}")
+                continue
+        
+        logger.info("="*60)
+        logger.info(f"✅ Successfully loaded {len(pdf_texts)}/{len(pdf_files)} PDFs")
+        logger.info("="*60)
+        
+        return pdf_texts, pdf_metadata_list
+
+# ==========================================
+# PREPROCESSING & CHUNKING
+# ==========================================
+
+def advanced_clean(text: str) -> str:
+    """Clean financial text"""
+    text = re.sub(r'\[PAGE \d+\]', '', text)
+    text = re.sub(r'\s+', ' ', text)
+    text = re.sub(r'[^\w\s\$\.\,\-\(\)\/%\:\;\']', ' ', text)
+    return re.sub(r'\s+', ' ', text).strip()
+
+def smart_chunking(text: str, chunk_sizes: List[int] = [100, 300]) -> Dict[int, List[str]]:
+    """Smart chunking with multiple sizes"""
+    _ensure_nltk_initialized()  # Ensure NLTK is ready
+    
+    try:
+        sentences = sent_tokenize(text)
+    except LookupError:
+        ensure_nltk_data()
+        sentences = sent_tokenize(text)
+    
+    chunks_by_size = {}
+    for target_size in chunk_sizes:
+        chunks, current_chunk, current_length = [], [], 0
+        for sentence in sentences:
+            sentence_length = len(sentence.split())
+            if current_length + sentence_length > target_size and current_chunk:
+                chunks.append(' '.join(current_chunk))
+                current_chunk, current_length = [sentence], sentence_length
+            else:
+                current_chunk.append(sentence)
+                current_length += sentence_length
+        if current_chunk:
+            chunks.append(' '.join(current_chunk))
+        chunks_by_size[target_size] = chunks
+    return chunks_by_size
+
+# ==========================================
+# MULTI-PDF RAG SYSTEM CLASS
+# ==========================================
+
+class AutomotiveFinancialRAG:
+    """Advanced Multi-PDF RAG system - Hugging Face Compatible"""
+    
+    def __init__(self, data_folder: str = None, skip_qa_generation: bool = False):
+        """
+        Initialize Multi-PDF Financial RAG System
+        
+        Args:
+            data_folder: Path to folder containing PDFs (default: auto-detect)
+            skip_qa_generation: If True, skip Q&A generation for faster init (default: False)
+                               Use this when loading pre-generated Q&A from file
+        """
+        logger.info("="*60)
+        logger.info("🚀 Initializing Multi-PDF Financial RAG System")
+        logger.info("="*60)
+        
+        # Use auto-detected folders if not provided
+        if data_folder is None:
+            data_folder = get_data_folder()
+        
+        self.data_folder = data_folder
+        self.output_folder = get_output_folder()
+        self.pdf_metadata_list = []
+        self.qa_index = []  # Pre-computed Q&A pairs
+        
+        # ✅ SAVE TO REPOSITORY ROOT (PERSISTENT & FREE!)
+        self.qa_json_path = "./automotive_qa_index.json"
+        
+        logger.info(f"📂 Data folder: {self.data_folder}")
+        logger.info(f"📁 Output folder: {self.output_folder}")
+        logger.info(f"💾 Q&A JSON path: {self.qa_json_path} ← REPOSITORY ROOT (Persistent!)")
+        
+        # Load models
+        logger.info("\n📦 Loading AI models...")
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.embedder = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2", device=self.device)
+        logger.info(f"   ✅ Embedder loaded on {self.device}")
+        
+        # Load PDFs
+        logger.info("\n📚 Loading PDFs...")
+        self.pdf_texts, self.pdf_metadata_list = PDFProcessor.load_all_pdfs_from_folder(data_folder)
+        
+        if not self.pdf_texts:
+            logger.warning("⚠️ No PDFs loaded")
+            logger.info(f"💡 Upload PDFs to: {self.data_folder}")
+            self.pdf_texts = {}
+        
+        # Build corpus
+        self.combined_corpus = []
+        self._build_corpus_from_all_pdfs()
+        
+        # Build indexes
+        self._build_indexes()
+        
+        # Update metadata
+        self._update_metadata_chunk_counts()
+        
+        # Build Q&A Index (optional - can be skipped for faster init)
+        if skip_qa_generation:
+            logger.info("\n⏭️ Skipping Q&A generation (use load_qa_from_file() to load)")
+            self.qa_index = []
+        else:
+            logger.info("\n🤖 Building Q&A Index...")
+            self.qa_index = self.generate_qa_pairs(max_pairs=50)
+            logger.info(f"✅ Q&A Index ready with {len(self.qa_index)} pairs")
+            
+            # Save Q&A to JSON
+            if self.qa_index:
+                self.save_qa_json()
+        
+        # Print summary
+        self._print_summary()
+    
+    def _build_corpus_from_all_pdfs(self):
+        """Build document corpus from ALL loaded PDFs"""
+        logger.info("\n🔨 Building document corpus...")
+        
+        for filename, text in self.pdf_texts.items():
+            logger.info(f"   Processing: {filename}")
+            
+            clean_text = advanced_clean(text)
+            chunks_by_size = smart_chunking(clean_text, [100, 300])
+            
+            chunks_added = 0
+            for size, chunks in chunks_by_size.items():
+                for pos, chunk_text in enumerate(chunks):
+                    if chunk_text.strip() and len(chunk_text.split()) > 10:
+                        self.combined_corpus.append(
+                            DocChunk(
+                                id=str(uuid.uuid4()),
+                                text=chunk_text,
+                                section="Financial Report",
+                                chunk_size=size,
+                                position=pos,
+                                token_count=len(chunk_text.split()),
+                                source_type='pdf',
+                                source_file=filename,
+                                page_number=None
+                            )
+                        )
+                        chunks_added += 1
+            
+            logger.info(f"      ✅ Created {chunks_added} chunks")
+        
+        logger.info(f"\n   ✅ Total corpus: {len(self.combined_corpus)} chunks from {len(self.pdf_texts)} file(s)")
+    
+    def _build_indexes(self):
+        """Build dense and sparse indexes"""
+        logger.info("\n🔍 Building search indexes...")
+        
+        if not self.combined_corpus:
+            logger.warning("⚠️ Empty corpus, skipping index build")
+            self.dense_matrix = np.array([])
+            self.bm25_index = None
+            return
+        
+        # Dense index
+        self.dense_matrix = self.embedder.encode(
+            [c.text for c in self.combined_corpus],
+            convert_to_numpy=True,
+            normalize_embeddings=True,
+            show_progress_bar=False
+        )
+        logger.info(f"   ✅ Dense index: {self.dense_matrix.shape}")
+        
+        # Sparse index - ensure NLTK is ready
+        _ensure_nltk_initialized()
+        
+        try:
+            self.stop_words = set(stopwords.words('english'))
+        except LookupError:
+            ensure_nltk_data()
+            self.stop_words = set(stopwords.words('english'))
+        
+        tokenized_corpus = [
+            [token for token in word_tokenize(chunk.text.lower()) 
+             if token.isalnum() and token not in self.stop_words]
+            for chunk in self.combined_corpus
+        ]
+        self.bm25_index = BM25Okapi(tokenized_corpus)
+        logger.info("   ✅ Sparse BM25 index created")
+    
+    def _update_metadata_chunk_counts(self):
+        """Update chunk counts in metadata"""
+        for metadata in self.pdf_metadata_list:
+            chunks = [c for c in self.combined_corpus if c.source_file == metadata.filename]
+            metadata.chunks_count = len(chunks)
+    
+    def _print_summary(self):
+        """Print loading summary"""
+        logger.info("\n" + "="*60)
+        logger.info("📊 LOADING SUMMARY")
+        logger.info("="*60)
+        
+        for metadata in self.pdf_metadata_list:
+            logger.info(f"\n📄 {metadata.filename}")
+            logger.info(f"   Pages: {metadata.total_pages}")
+            logger.info(f"   Size: {metadata.file_size_mb:.2f} MB")
+            logger.info(f"   Chunks: {metadata.chunks_count}")
+            logger.info(f"   Tokens: {metadata.total_tokens:,}")
+            logger.info(f"   Method: {metadata.extraction_method}")
+        
+        logger.info("\n" + "="*60)
+        logger.info(f"✅ System Ready!")
+        logger.info(f"   Total PDFs: {len(self.pdf_metadata_list)}")
+        logger.info(f"   Total Chunks: {len(self.combined_corpus)}")
+        logger.info(f"   Total Tokens: {sum(c.token_count for c in self.combined_corpus):,}")
+        logger.info(f"   Q&A Pairs: {len(self.qa_index)}")
+        logger.info(f"   Data Folder: {self.data_folder}")
+        logger.info(f"   Output Folder: {self.output_folder}")
+        logger.info("="*60 + "\n")
+    
+    # ==========================================
+    # SEARCH FUNCTIONS
+    # ==========================================
+    
+    def dense_search(self, query: str, top_k: int = 8) -> List[Tuple[int, float]]:
+        """Dense semantic search"""
+        if len(self.dense_matrix) == 0:
+            return []
+        
+        q_emb = self.embedder.encode([query], normalize_embeddings=True)
+        scores = (self.dense_matrix @ q_emb.T).ravel()
+        top_indices = np.argsort(scores)[::-1][:top_k]
+        return [(int(idx), float(scores[idx])) for idx in top_indices]
+    
+    def sparse_search(self, query: str, top_k: int = 8) -> List[Tuple[int, float]]:
+        """Sparse BM25 search"""
+        if self.bm25_index is None:
+            return []
+        
+        query_tokens = [
+            token for token in word_tokenize(query.lower())
+            if token.isalnum() and token not in self.stop_words
+        ]
+        if not query_tokens:
+            return []
+        scores = self.bm25_index.get_scores(query_tokens)
+        top_indices = np.argsort(scores)[::-1][:top_k]
+        return [(int(idx), float(scores[idx])) for idx in top_indices if scores[idx] > 0]
+    
+    def hybrid_retrieval(self, query: str, k_dense: int = 6, k_sparse: int = 6, 
+                        alpha: float = 0.6, top_k_final: int = 6) -> List[Tuple[int, float]]:
+        """Hybrid retrieval combining dense and sparse"""
+        dense_results = self.dense_search(query, top_k=k_dense)
+        sparse_results = self.sparse_search(query, top_k=k_sparse)
+        
+        candidates = {idx: {"dense": score, "sparse": 0.0} for idx, score in dense_results}
+        for idx, score in sparse_results:
+            if idx not in candidates:
+                candidates[idx] = {"dense": 0.0, "sparse": score}
+            else:
+                candidates[idx]["sparse"] = score
+        
+        if not candidates:
+            return []
+        
+        dense_scores = np.array([v["dense"] for v in candidates.values()])
+        sparse_scores = np.array([v["sparse"] for v in candidates.values()])
+        
+        def normalize(scores):
+            min_s, max_s = scores.min(), scores.max()
+            return (scores - min_s) / (max_s - min_s) if max_s > min_s else np.zeros_like(scores)
+        
+        fused_scores = alpha * normalize(dense_scores) + (1 - alpha) * normalize(sparse_scores)
+        sorted_indices = np.argsort(fused_scores)[::-1][:top_k_final]
+        
+        final_results = []
+        candidate_indices = list(candidates.keys())
+        for i in sorted_indices:
+            final_results.append((candidate_indices[i], fused_scores[i]))
+        
+        return final_results
+    
+    # ==========================================
+    # Q&A INDEX GENERATION
+    # ==========================================
+    
+    def generate_qa_pairs(self, max_pairs: int = 50) -> List[Dict[str, str]]:
+        """Auto-generate Q&A pairs from loaded PDFs"""
+        logger.info(f"🤖 Generating Q&A pairs from {len(self.pdf_texts)} PDF(s)...")
+        
+        qa_pairs = []
+        
+        # Company name extraction - EXPANDED LIST
+        companies = {
+            'nissan': ['Nissan', 'Nissan Motor'],
+            'mercedes': ['Mercedes-Benz', 'Mercedes', 'Daimler'],
+            'tesla': ['Tesla', 'Tesla Inc', 'TSLA'],
+            'bmw': ['BMW', 'BMW Group', 'Bayerische Motoren Werke'],
+            'toyota': ['Toyota', 'Toyota Motor', 'Toyota Motors'],
+            'ford': ['Ford', 'Ford Motor'],
+            'honda': ['Honda', 'Honda Motor'],
+            'volkswagen': ['Volkswagen', 'VW', 'VW Group'],
+            'gm': ['General Motors', 'GM'],
+            'hyundai': ['Hyundai', 'Hyundai Motor']
+        }
+        
+        for filename, text in self.pdf_texts.items():
+            logger.info(f"   Processing: {filename}")
+            
+            # Detect company - IMPROVED DETECTION
+            company_name = None
+            company_key = None
+            filename_lower = filename.lower()
+            
+            for key, names in companies.items():
+                # Check if any company name variant is in filename (case-insensitive)
+                if any(name.lower() in filename_lower for name in names):
+                    company_key = key
+                    company_name = names[0]
+                    logger.info(f"      ✅ Detected company: {company_name}")
+                    break
+            
+            if not company_name:
+                logger.warning(f"   ⚠️ Could not detect company from filename: {filename}")
+                # Try to extract from content
+                text_lower = text[:5000].lower()  # Check first 5000 chars
+                for key, names in companies.items():
+                    if any(name.lower() in text_lower for name in names):
+                        company_key = key
+                        company_name = names[0]
+                        logger.info(f"      ✅ Detected company from content: {company_name}")
+                        break
+                
+                if not company_name:
+                    logger.warning(f"   ⚠️ Skipping Q&A generation for {filename} (unknown company)")
+                    continue
+            
+            clean = advanced_clean(text)
+            
+            # Extract financial sentences
+            sentences = [s.strip() for s in clean.split('.') if len(s.strip()) > 30]
+            company_qa_count = 0
+            for sentence in sentences:
+                # Only process sentences with numbers (likely financial data)
+                if not re.search(r'\d', sentence) or len(sentence.split()) < 10:
+                    continue
+                
+                questions = self._generate_questions_for_sentence(sentence, company_name, filename)
+                
+                for question in questions:
+                    qa_pairs.append({
+                        "question": question,
+                        "answer": sentence.strip(),
+                        "source": filename,
+                        "company": company_name
+                    })
+                    company_qa_count += 1
+                    if company_qa_count >= max_pairs:
+                        break
+                
+                if company_qa_count >= max_pairs:
+                    break
+            
+            logger.info(f"      Generated {len([qa for qa in qa_pairs if qa['source'] == filename])} Q&A pairs")
+        
+        logger.info(f"✅ Generated {len(qa_pairs)} Q&A pairs total")
+        return qa_pairs
+    
+    def _generate_questions_for_sentence(self, sentence: str, company: str, source: str) -> List[str]:
+        """Generate questions from a factual sentence"""
+        questions = []
+        sentence_lower = sentence.lower()
+        
+        # Revenue mentions
+        if 'revenue' in sentence_lower or 'sales' in sentence_lower:
+            questions.append(f"What was {company}'s revenue?")
+            questions.append(f"What was {company}'s total revenue in 2023?")
+            questions.append(f"What were {company}'s 2024 revenues?")
+        
+        # Profit/Income
+        if 'profit' in sentence_lower or 'income' in sentence_lower or 'net income' in sentence_lower:
+            questions.append(f"What was {company}'s net income?")
+            questions.append(f"How much profit did {company} make?")
+            questions.append(f"What was {company}'s profit in 2023?")
+        
+        # Vehicle sales/deliveries
+        if ('vehicle' in sentence_lower or 'car' in sentence_lower) and ('sales' in sentence_lower or 'deliver' in sentence_lower):
+            questions.append(f"How many vehicles did {company} sell?")
+            questions.append(f"What were {company}'s vehicle deliveries?")
+        
+        # Operating margin
+        if 'operating margin' in sentence_lower or 'margin' in sentence_lower:
+            questions.append(f"What was {company}'s operating margin?")
+        
+        # Market share
+        if 'market' in sentence_lower and 'share' in sentence_lower:
+            questions.append(f"What is {company}'s market share?")
+        
+        # R&D spending
+        if 'r&d' in sentence_lower or 'research' in sentence_lower:
+            questions.append(f"What was {company}'s R&D investment?")
+        
+        # Year-specific
+        years = re.findall(r'20\d{2}', sentence)
+        if years:
+            year = years[0]
+            questions.append(f"What were {company}'s financials in {year}?")
+        
+        return questions
+    
+    def search_qa_index(self, query: str) -> Optional[str]:
+        """Search pre-generated Q&A index for exact matches"""
+        if not self.qa_index:
+            return None
+        
+        query_lower = query.lower().strip()
+        
+        # Direct match
+        for qa in self.qa_index:
+            if qa['question'].lower().strip() == query_lower:
+                logger.info("✅ Found exact Q&A match")
+                return qa['answer']
+        
+        # Fuzzy match (high similarity)
+        query_emb = self.embedder.encode([query], normalize_embeddings=True)
+        
+        qa_questions = [qa['question'] for qa in self.qa_index]
+        qa_embs = self.embedder.encode(qa_questions, normalize_embeddings=True, show_progress_bar=False)
+        
+        similarities = (qa_embs @ query_emb.T).ravel()
+        best_idx = np.argmax(similarities)
+        
+        if similarities[best_idx] > 0.85:
+            logger.info(f"✅ Found Q&A match: {similarities[best_idx]:.2f}")
+            return self.qa_index[best_idx]['answer']
+        
+        return None
+    
+    def save_qa_json(self, filepath: str = None):
+        """Save generated Q&A pairs to JSON file in REPOSITORY ROOT"""
+        if filepath is None:
+            filepath = self.qa_json_path
+        
+        # Ensure we're saving to a writable location
+        try:
+            # Save JSON
+            with open(filepath, 'w', encoding='utf-8') as f:
+                json.dump(self.qa_index, f, indent=2, ensure_ascii=False)
+            
+            # Verify file exists and get size
+            if os.path.exists(filepath):
+                file_size = os.path.getsize(filepath) / 1024  # KB
+                abs_path = os.path.abspath(filepath)
+                
+                logger.info("="*60)
+                logger.info("✅ Q&A JSON FILE SAVED SUCCESSFULLY!")
+                logger.info("="*60)
+                logger.info(f"📄 File: {filepath}")
+                logger.info(f"📍 Absolute path: {abs_path}")
+                logger.info(f"📊 Q&A Pairs: {len(self.qa_index)}")
+                logger.info(f"💾 File size: {file_size:.2f} KB")
+                logger.info("="*60)
+                logger.info("🔥 IMPORTANT - TO MAKE THIS PERSISTENT:")
+                logger.info("="*60)
+                logger.info(f"1. Commit the file to git:")
+                logger.info(f"   git add {filepath}")
+                logger.info(f'   git commit -m "Add Q&A index"')
+                logger.info(f"   git push")
+                logger.info("")
+                logger.info("2. Or via Hugging Face UI:")
+                logger.info("   - Go to Files tab")
+                logger.info(f"   - Find: {filepath}")
+                logger.info("   - Click 'Commit to main'")
+                logger.info("="*60)
+                
+                return filepath
+            else:
+                logger.error(f"❌ File was not created: {filepath}")
+                return None
+                
+        except Exception as e:
+            logger.error(f"❌ Error saving Q&A JSON: {e}")
+            logger.error(f"   Attempted path: {filepath}")
+            
+            # Try fallback to current directory
+            try:
+                fallback_path = f"./automotive_qa_index_{int(time.time())}.json"
+                with open(fallback_path, 'w', encoding='utf-8') as f:
+                    json.dump(self.qa_index, f, indent=2, ensure_ascii=False)
+                
+                logger.info(f"✅ Saved to fallback location: {fallback_path}")
+                return fallback_path
+                
+            except Exception as e2:
+                logger.error(f"❌ Fallback save also failed: {e2}")
+                return None
+    
+    def load_qa_from_file(self, filepath: str):
+        """
+        Load pre-generated Q&A from JSON file
+        
+        Args:
+            filepath: Path to JSON file containing Q&A pairs
+            
+        Returns:
+            List of Q&A pairs
+            
+        Example:
+            rag = AutomotiveFinancialRAG(skip_qa_generation=True)
+            rag.load_qa_from_file("./automotive_qa_index.json")
+        """
+        try:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                self.qa_index = json.load(f)
+            
+            # Update the JSON path
+            self.qa_json_path = filepath
+            
+            logger.info(f"✅ Loaded {len(self.qa_index)} Q&A pairs from {filepath}")
+            
+            # Show statistics
+            if self.qa_index:
+                companies = set(qa.get('company', 'Unknown') for qa in self.qa_index)
+                logger.info(f"   Companies: {', '.join(sorted(companies))}")
+                
+                sources = set(qa.get('source', 'Unknown') for qa in self.qa_index)
+                logger.info(f"   Sources: {len(sources)} PDF(s)")
+            
+            return self.qa_index
+            
+        except FileNotFoundError:
+            logger.error(f"❌ Q&A file not found: {filepath}")
+            logger.info(f"💡 Generate Q&A first or check file path")
+            return []
+            
+        except json.JSONDecodeError as e:
+            logger.error(f"❌ Invalid JSON format in {filepath}: {e}")
+            return []
+            
+        except Exception as e:
+            logger.error(f"❌ Error loading Q&A from {filepath}: {e}")
+            return []
+    
+    # ==========================================
+    # EXTRACTIVE QA (NO HALLUCINATION)
+    # ==========================================
+    
+    def check_input_safety(self, query: str) -> Tuple[bool, str]:
+        """Input guardrail"""
+        irrelevant_patterns = [
+            r"weather|sports|entertainment|recipe|movie",
+            r"what\s+is\s+your\s+name|who\s+are\s+you"
+        ]
+        for pattern in irrelevant_patterns:
+            if re.search(pattern, query.lower()):
+                return False, "Query is not related to automotive financial information"
+        return True, "Safe"
+    
+    def answer_query(self, query: str, k_dense: int = 6, k_sparse: int = 6,
+                    alpha: float = 0.6, top_k_final: int = 6, temperature: float = 0.3) -> Dict:
+        """Main QA function - Check Q&A index first, then extractive QA"""
+        start_time = time.time()
+        
+        # Input guardrail
+        is_safe, safety_msg = self.check_input_safety(query)
+        if not is_safe:
+            return {
+                "answer": safety_msg,
+                "method": "Input Guardrail",
+                "confidence": 0.0,
+                "latency_sec": time.time() - start_time,
+                "retrieved": [],
+                "safety_check": safety_msg,
+                "sources": []
+            }
+        
+        # Check Q&A index first (fastest, most accurate)
+        qa_answer = self.search_qa_index(query)
+        if qa_answer:
+            return {
+                "answer": qa_answer,
+                "method": "Q&A Index (Pre-computed)",
+                "confidence": 0.95,
+                "latency_sec": time.time() - start_time,
+                "retrieved": [{"rank": 1, "score": 0.95, "content": qa_answer[:50], "source_file": "Q&A Index"}],
+                "safety_check": "Safe",
+                "sources": ["Q&A Index"]
+            }
+        
+        # Retrieve contexts
+        retrieval_results = self.hybrid_retrieval(query, k_dense, k_sparse, alpha, top_k_final)
+        
+        if not retrieval_results:
+            return {
+                "answer": "No relevant financial data found for this query.",
+                "method": "Hybrid RAG (No Results)",
+                "confidence": 0.0,
+                "latency_sec": time.time() - start_time,
+                "retrieved": [],
+                "safety_check": "Safe",
+                "sources": []
+            }
+        
+        contexts = [self.combined_corpus[idx].text for idx, score in retrieval_results]
+        source_files = list(set([self.combined_corpus[idx].source_file for idx, score in retrieval_results]))
+        
+        # Format retrieved metadata
+        retrieved_metadata = []
+        for r, (idx, score) in enumerate(retrieval_results):
+            chunk = self.combined_corpus[idx]
+            retrieved_metadata.append({
+                "rank": r + 1,
+                "score": round(score, 4),
+                "content": chunk.text[:250] + "..." if len(chunk.text) > 250 else chunk.text,
+                "section": chunk.section,
+                "tokens": chunk.token_count,
+                "source_file": chunk.source_file
+            })
+        
+        # EXTRACTIVE ANSWER (No Generation - No Hallucination!)
+        raw_answer = self._extract_financial_answer(query, contexts)
+        
+        # Calculate confidence
+        avg_score = np.mean([score for _, score in retrieval_results])
+        confidence = min(0.95, avg_score * 0.85)
+        
+        return {
+            "answer": raw_answer,
+            "method": "Extractive QA (No Hallucination)",
+            "confidence": round(confidence, 3),
+            "latency_sec": round(time.time() - start_time, 3),
+            "retrieved": retrieved_metadata,
+            "safety_check": "Safe",
+            "sources": source_files
+        }
+    
+    def _extract_financial_answer(self, query: str, contexts: List[str]) -> str:
+        """Extract answer using smart pattern matching"""
+        if not contexts:
+            return "No relevant information found in the loaded documents."
+        
+        query_lower = query.lower()
+        
+        # Pattern 1: Revenue/Income queries
+        if any(word in query_lower for word in ['revenue', 'sales', 'income']):
+            return self._extract_financial_figure(contexts, ['revenue', 'sales', 'income'], query_lower)
+        
+        # Pattern 2: Profit/Margin queries
+        elif any(word in query_lower for word in ['profit', 'margin', 'ebit', 'ebitda']):
+            return self._extract_financial_figure(contexts, ['profit', 'margin', 'operating'], query_lower)
+        
+        # Pattern 3: Company-specific queries
+        elif any(company in query_lower for company in ['toyota', 'tesla', 'ford', 'nissan', 'mercedes']):
+            return self._extract_company_info(contexts, query_lower)
+        
+        # Pattern 4: Comparison queries
+        elif any(word in query_lower for word in ['compare', 'vs', 'versus', 'difference']):
+            return self._extract_comparison(contexts, query_lower)
+        
+        # Pattern 5: General extraction
+        else:
+            return self._extract_relevant_sentences(contexts, query_lower)
+    
+    def _extract_financial_figure(self, contexts: List[str], keywords: List[str], query: str) -> str:
+        """Extract financial figures from contexts"""
+        combined = " ".join(contexts[:5])
+        sentences = [s.strip() for s in combined.split('.') if s.strip()]
+        relevant = []
+        
+        for sentence in sentences:
+            sentence_lower = sentence.lower()
+            
+            has_keyword = any(kw in sentence_lower for kw in keywords)
+            has_number = bool(re.search(r'\$?[\d,]+\.?\d*\s*(?:million|billion|trillion|%)?', sentence))
+            
+            companies = ['toyota', 'tesla', 'ford', 'nissan', 'mercedes']
+            query_company = next((c for c in companies if c in query), None)
+            
+            if has_keyword and has_number:
+                if query_company:
+                    if query_company in sentence_lower:
+                        relevant.append((sentence, 3))
+                else:
+                    relevant.append((sentence, 2))
+        
+        if not relevant:
+            for sentence in sentences:
+                if re.search(r'\$?[\d,]+\.?\d*\s*(?:million|billion|trillion)', sentence):
+                    relevant.append((sentence, 1))
+        
+        if relevant:
+            relevant.sort(key=lambda x: x[1], reverse=True)
+            answer = ". ".join([s[0] for s in relevant[:3]])
+            return answer if answer.endswith('.') else answer + "."
+        
+        return "The requested financial information was not found in the loaded documents."
+    
+    def _extract_company_info(self, contexts: List[str], query: str) -> str:
+        """Extract company-specific information"""
+        companies = ['toyota', 'tesla', 'ford', 'nissan', 'mercedes']
+        query_company = next((c for c in companies if c in query), None)
+        
+        if not query_company:
+            return self._extract_relevant_sentences(contexts, query)
+        
+        combined = " ".join(contexts[:5])
+        sentences = [s.strip() for s in combined.split('.') if s.strip()]
+        
+        company_sentences = []
+        for sentence in sentences:
+            if query_company in sentence.lower():
+                has_data = bool(re.search(r'\d', sentence))
+                if has_data:
+                    company_sentences.append(sentence)
+        
+        if company_sentences:
+            answer = ". ".join(company_sentences[:3])
+            return answer if answer.endswith('.') else answer + "."
+        
+        return f"Information about {query_company.title()} was not found in the loaded documents."
+    
+    def _extract_comparison(self, contexts: List[str], query: str) -> str:
+        """Extract comparison information"""
+        combined = " ".join(contexts[:5])
+        sentences = [s.strip() for s in combined.split('.') if s.strip()]
+        
+        comparison_sentences = []
+        for sentence in sentences:
+            has_numbers = bool(re.search(r'\d', sentence))
+            has_comparison = any(word in sentence.lower() for word in ['higher', 'lower', 'more', 'less', 'vs', 'compared'])
+            
+            if has_numbers and (has_comparison or len(re.findall(r'\d+', sentence)) >= 2):
+                comparison_sentences.append(sentence)
+        
+        if comparison_sentences:
+            answer = ". ".join(comparison_sentences[:3])
+            return answer if answer.endswith('.') else answer + "."
+        
+        return self._extract_relevant_sentences(contexts, query)
+    
+    def _extract_relevant_sentences(self, contexts: List[str], query: str) -> str:
+        """General extraction based on keyword matching"""
+        combined = " ".join(contexts[:3])
+        sentences = [s.strip() for s in combined.split('.') if len(s.strip()) > 20]
+        
+        query_words = set(query.lower().split())
+        query_words.discard('what')
+        query_words.discard('how')
+        query_words.discard('when')
+        query_words.discard('where')
+        query_words.discard('the')
+        query_words.discard('was')
+        query_words.discard('is')
+        
+        scored = []
+        for sentence in sentences:
+            sentence_lower = sentence.lower()
+            matches = sum(1 for word in query_words if word in sentence_lower)
+            if matches > 0:
+                scored.append((sentence, matches))
+        
+        scored.sort(key=lambda x: x[1], reverse=True)
+        
+        if scored:
+            answer = ". ".join([s[0] for s in scored[:3]])
+            return answer if answer.endswith('.') else answer + "."
+        
+        return contexts[0][:300] + "..." if contexts else "No relevant information found."
+    
+    # ==========================================
+    # UTILITY FUNCTIONS
+    # ==========================================
+    
+    def get_corpus_stats(self) -> Dict:
+        """Get corpus statistics"""
+        return {
+            "total_pdfs": len(self.pdf_metadata_list),
+            "total_chunks": len(self.combined_corpus),
+            "total_tokens": sum(c.token_count for c in self.combined_corpus),
+            "avg_chunk_size": np.mean([c.chunk_size for c in self.combined_corpus]) if self.combined_corpus else 0,
+            "pdfs_loaded": [m.filename for m in self.pdf_metadata_list],
+            "qa_pairs": len(self.qa_index),
+            "data_folder": self.data_folder,
+            "output_folder": self.output_folder
+        }
+    
+    def get_pdf_list(self) -> List[Dict]:
+        """Get list of loaded PDFs with details"""
+        return [
+            {
+                "filename": m.filename,
+                "pages": m.total_pages,
+                "size_mb": round(m.file_size_mb, 2),
+                "chunks": m.chunks_count,
+                "tokens": m.total_tokens,
+                "method": m.extraction_method
+            }
+            for m in self.pdf_metadata_list
+        ]
+    
+    def get_all_qa_pairs(self) -> List[Dict]:
+        """Get all Q&A pairs"""
+        return self.qa_index
+
+
+# ==========================================
+# TEST FUNCTION
+# ==========================================
+
+def test_financial_rag():
+    """Test the complete financial RAG system"""
+    print("\n" + "="*60)
+    print("🧪 TESTING FINANCIAL RAG SYSTEM (Hugging Face Compatible)")
+    print("="*60)
+    
+    # Initialize (auto-detects folders)
+    rag = AutomotiveFinancialRAG()
+    
+    # Get statistics
+    stats = rag.get_corpus_stats()
+    print(f"\n📊 System Statistics:")
+    print(f"   Total PDFs: {stats['total_pdfs']}")
+    print(f"   Total Chunks: {stats['total_chunks']}")
+    print(f"   Total Tokens: {stats['total_tokens']:,}")
+    print(f"   Q&A Pairs: {stats['qa_pairs']}")
+    print(f"   Data Folder: {stats['data_folder']}")
+    print(f"   Output Folder: {stats['output_folder']}")
+    
+    if stats['total_pdfs'] == 0:
+        print(f"\n⚠️ No PDFs found!")
+        print(f"💡 Please upload PDFs to: {stats['data_folder']}")
+        return
+    
+    # Test queries
+    print(f"\n🔍 Testing Queries:")
+    print("="*60)
+    
+    test_queries = [
+        "What was Nissan's total revenue in 2023?",
+        "What was Tesla's net income?",
+        "What was Mercedes-Benz revenue?",
+        "How many vehicles did Nissan sell?",
+        "What was Tesla's operating margin?"
+    ]
+    
+    for query in test_queries:
+        print(f"\n❓ Query: {query}")
+        result = rag.answer_query(query)
+        print(f"📝 Answer: {result['answer'][:50]}...")
+        print(f"⚙️ Method: {result['method']}")
+        print(f"🎯 Confidence: {result['confidence']}")
+        print(f"📂 Sources: {', '.join(result['sources'][:2])}")
+        print("-"*60)
+    
+    print("\n" + "="*60)
+    print("✅ Testing Complete!")
+    print(f"💾 Q&A JSON saved to: {rag.qa_json_path}")
+    print("="*60 + "\n")
+
+if __name__ == "__main__":
+    test_financial_rag()

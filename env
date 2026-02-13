@@ -1,0 +1,17 @@
+# Neo4j Configuration
+NEO4J_URI=neo4j+s://50ad6469.databases.neo4j.io
+NEO4J_USERNAME=neo4j
+NEO4J_PASSWORD=xr2vCSD0RHLbfb3Bzzlpds04tm3fARSgvGHqZRkfevc
+NEO4J_DATABASE=neo4j
+AURA_INSTANCEID=50ad6469
+AURA_INSTANCENAME=VoiceAssistance_multilingual
+
+# OpenAI Configuration (Optional - for premium TTS)
+# OPENAI_API_KEY=your_openai_api_key_here
+
+# Hugging Face (Optional - for private models)
+# HF_TOKEN=your_huggingface_token_here
+
+# Application Settings
+GRADIO_SERVER_NAME=0.0.0.0
+GRADIO_SERVER_PORT=7860

@@ -1,0 +1,1502 @@
+[
+  {
+    "question": "What was BMW's total revenue in 2024?",
+    "answer": "BMW Group reported total revenues of €155.5 billion in 2024, representing a 9.8% increase compared to the previous year.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's net profit in 2024?",
+    "answer": "BMW Group achieved a net profit of €17.1 billion in 2024, with a profit margin of 11.0%.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "How many vehicles did BMW deliver in 2024?",
+    "answer": "BMW Group delivered 2.55 million vehicles worldwide in 2024, including BMW, MINI, and Rolls-Royce brands.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's operating margin in 2024?",
+    "answer": "BMW Group's automotive segment achieved an EBIT margin of 10.9% in 2024.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's R&D spending in 2024?",
+    "answer": "BMW Group invested €7.2 billion in research and development in 2024, representing 4.6% of revenues.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's free cash flow in 2024?",
+    "answer": "BMW Group's automotive segment generated free cash flow of €8.4 billion in 2024.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "How many electric vehicles did BMW sell in 2024?",
+    "answer": "BMW Group delivered 376,000 all-electric vehicles in 2024, representing a 75% increase year-over-year.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What is BMW's electric vehicle sales target for 2025?",
+    "answer": "BMW Group targets to deliver more than 500,000 all-electric vehicles in 2025.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's revenue in China in 2024?",
+    "answer": "BMW Group generated approximately €38.7 billion in revenue from China in 2024, representing about 25% of total revenues.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's workforce size in 2024?",
+    "answer": "BMW Group employed 154,950 people worldwide as of December 31, 2024.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What is BMW's target for CO2 emissions reduction?",
+    "answer": "BMW Group aims to reduce CO2 emissions per vehicle by at least 40% by 2030 compared to 2019 levels.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's return on equity in 2024?",
+    "answer": "BMW Group achieved a return on equity of 15.7% in 2024.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What percentage of BMW's sales were in Europe in 2024?",
+    "answer": "Europe accounted for approximately 42% of BMW Group's vehicle deliveries in 2024.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's motorcycle segment revenue in 2024?",
+    "answer": "BMW Motorrad generated revenue of €3.4 billion in 2024, delivering 209,066 motorcycles and scooters.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's financial services profit in 2024?",
+    "answer": "BMW Financial Services contributed €2.8 billion in profit before tax in 2024.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What is BMW's planned investment in electrification by 2026?",
+    "answer": "BMW Group plans to invest over €30 billion in electrification and digitalization between 2023 and 2026.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's market share in the US in 2024?",
+    "answer": "BMW held approximately 3.2% market share in the United States in 2024, with sales of 389,000 vehicles.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's plug-in hybrid sales in 2024?",
+    "answer": "BMW sold 362,000 plug-in hybrid electric vehicles in 2024, complementing its all-electric lineup.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What is BMW's battery supply strategy for 2025?",
+    "answer": "BMW has secured battery supply contracts worth over €20 billion through 2030 with suppliers including CATL, Samsung SDI, and Northvolt.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's digital services revenue in 2024?",
+    "answer": "BMW generated €1.2 billion from digital services and connected car features in 2024, growing 34% year-over-year.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's average selling price in 2024?",
+    "answer": "BMW's average selling price per vehicle reached €61,000 in 2024, the highest in the premium segment.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's warranty expense ratio in 2024?",
+    "answer": "BMW maintained a warranty expense ratio of 2.1% of revenues in 2024, reflecting high quality standards.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "How many BMW i4 electric sedans were sold in 2024?",
+    "answer": "BMW sold 78,000 i4 electric sedans globally in 2024, making it the second best-selling electric BMW model.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's market share in Germany in 2024?",
+    "answer": "BMW held 11.8% market share in Germany in 2024, selling 284,000 vehicles domestically.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's MINI brand sales in 2024?",
+    "answer": "MINI brand sold 298,000 vehicles globally in 2024, with the electric MINI Cooper SE accounting for 32,000 units.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's operating cash flow in 2024?",
+    "answer": "BMW Group generated operating cash flow of €16.2 billion in 2024 from automotive operations.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's capital expenditure in 2024?",
+    "answer": "BMW invested €7.8 billion in capital expenditure in 2024, primarily for production facilities and new model development.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's debt-to-equity ratio in 2024?",
+    "answer": "BMW maintained a debt-to-equity ratio of 1.12 in 2024, reflecting a balanced capital structure.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "How many BMW iX electric SUVs were delivered in 2024?",
+    "answer": "BMW delivered 54,000 iX electric SUVs in 2024, its flagship electric model.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's revenue from Americas region in 2024?",
+    "answer": "BMW generated €31.4 billion in revenue from the Americas region in 2024, representing 20% of total revenues.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's inventory turnover in 2024?",
+    "answer": "BMW achieved an inventory turnover ratio of 8.7 times in 2024, demonstrating efficient inventory management.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's dividend payout in 2024?",
+    "answer": "BMW paid a dividend of €6.00 per share for fiscal 2024, totaling €3.9 billion to shareholders.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's aftermarket parts revenue in 2024?",
+    "answer": "BMW's aftermarket parts and accessories business generated €5.1 billion in revenue in 2024.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "How many BMW 7 Series luxury sedans were sold in 2024?",
+    "answer": "BMW sold 42,000 7 Series sedans globally in 2024, including all-electric i7 variant.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's employee productivity in 2024?",
+    "answer": "BMW achieved revenue per employee of €1.0 million in 2024, among the highest in the automotive industry.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's lease penetration rate in 2024?",
+    "answer": "Leasing accounted for 38% of BMW's total retail sales in 2024.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's used car sales volume in 2024?",
+    "answer": "BMW sold 427,000 used vehicles through its certified pre-owned program in 2024.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's software development headcount in 2024?",
+    "answer": "BMW employed over 9,500 software engineers as of December 2024, focusing on autonomous driving and digital services.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's average customer retention rate in 2024?",
+    "answer": "BMW achieved a customer retention rate of 67% in 2024, among the highest in the premium segment.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "How many BMW X5 SUVs were produced in 2024?",
+    "answer": "BMW produced 312,000 X5 SUVs in 2024, making it the brand's best-selling model globally.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's gross margin in 2024?",
+    "answer": "BMW achieved a gross margin of 19.8% in 2024 across its automotive operations.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's charging infrastructure investment in 2024?",
+    "answer": "BMW invested €450 million in charging infrastructure partnerships in 2024, supporting electric vehicle adoption.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "How many BMW 3 Series vehicles were sold in 2024?",
+    "answer": "BMW sold 398,000 3 Series vehicles globally in 2024, remaining one of the brand's core models.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's total assets value at end of 2024?",
+    "answer": "BMW Group's total assets reached €283.4 billion as of December 31, 2024.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's market capitalization in 2024?",
+    "answer": "BMW's market capitalization stood at approximately €54 billion as of December 31, 2024.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's autonomous driving development spending in 2024?",
+    "answer": "BMW allocated €1.8 billion to autonomous driving technology development in 2024.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "How many Rolls-Royce vehicles were delivered in 2024?",
+    "answer": "Rolls-Royce Motor Cars delivered 6,032 vehicles in 2024, a record year for the ultra-luxury brand.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's CO2 fleet average in Europe in 2024?",
+    "answer": "BMW achieved a fleet average CO2 emission of 98 grams per kilometer in Europe in 2024.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's customer satisfaction score in 2024?",
+    "answer": "BMW scored 86 out of 100 in the J.D. Power Customer Satisfaction Index in 2024.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was BMW's global production capacity in 2024?",
+    "answer": "BMW's global production capacity reached 3.2 million vehicles annually across 31 production facilities in 2024.",
+    "source": "BMW-Group-Report-2024-en.pdf",
+    "company": "BMW"
+  },
+  {
+    "question": "What was Toyota's total revenue in 2024?",
+    "answer": "Toyota Motor Corporation reported consolidated revenue of ¥45.1 trillion (approximately $309 billion) for fiscal year 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's operating profit in 2024?",
+    "answer": "Toyota achieved an operating profit of ¥5.35 trillion in fiscal year 2024, with an operating profit margin of 11.9%.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "How many vehicles did Toyota sell globally in 2024?",
+    "answer": "Toyota sold 10.3 million vehicles globally in 2024, maintaining its position as the world's largest automaker.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's net income in 2024?",
+    "answer": "Toyota reported net income of ¥4.94 trillion for fiscal year 2024, representing a 10.3% profit margin.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's R&D investment in 2024?",
+    "answer": "Toyota invested ¥1.3 trillion in research and development in 2024, focusing on electrification and autonomous driving.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "How many hybrid vehicles did Toyota sell in 2024?",
+    "answer": "Toyota sold 3.7 million hybrid electric vehicles globally in 2024, representing about 36% of total sales.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's market share in North America in 2024?",
+    "answer": "Toyota held approximately 15.3% market share in North America in 2024, selling 2.3 million vehicles.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's capital expenditure in 2024?",
+    "answer": "Toyota's capital expenditure totaled ¥1.8 trillion in fiscal year 2024, primarily for production capacity and electrification.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What is Toyota's electric vehicle production target for 2026?",
+    "answer": "Toyota aims to produce 1.5 million battery electric vehicles annually by 2026.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's financial services revenue in 2024?",
+    "answer": "Toyota Financial Services contributed ¥3.2 trillion in revenue and ¥485 billion in operating income in 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What is Toyota's hydrogen fuel cell vehicle production target?",
+    "answer": "Toyota plans to expand hydrogen fuel cell vehicle production to include commercial trucks and buses, targeting broader adoption by 2025.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's dividend per share in 2024?",
+    "answer": "Toyota paid an annual dividend of ¥70 per share in fiscal 2024, representing a dividend yield of approximately 2.8%.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's operating cash flow in 2024?",
+    "answer": "Toyota generated operating cash flow of ¥6.2 trillion in fiscal 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's sales in Asia excluding Japan in 2024?",
+    "answer": "Toyota sold 1.7 million vehicles in Asia excluding Japan in 2024, with particularly strong growth in Thailand and Indonesia.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's inventory turnover in 2024?",
+    "answer": "Toyota maintained an inventory turnover ratio of 11.2 times in fiscal 2024, reflecting efficient production management.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's global production capacity in 2024?",
+    "answer": "Toyota's global production capacity reached 11.5 million vehicles annually across 51 manufacturing facilities worldwide in 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's Lexus brand sales in 2024?",
+    "answer": "Lexus sold 760,000 vehicles globally in 2024, with strong performance in North America, China, and Europe.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's inventory level at end of 2024?",
+    "answer": "Toyota maintained inventory of ¥5.2 trillion as of March 31, 2024, representing approximately 42 days of sales.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's pension obligations at end of fiscal 2024?",
+    "answer": "Toyota's retirement benefit obligations totaled ¥2.8 trillion as of March 31, 2024, with plan assets of ¥2.4 trillion.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's brand value ranking in 2024?",
+    "answer": "Toyota was ranked as the world's most valuable automotive brand in 2024 with an estimated brand value of $59.5 billion.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's market share in Japan in 2024?",
+    "answer": "Toyota held 47.3% market share in Japan in 2024, selling 1.58 million vehicles domestically.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's electric vehicle sales in 2024?",
+    "answer": "Toyota sold 104,000 battery electric vehicles globally in 2024, including bZ4X and bZ3 models.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's gross profit margin in 2024?",
+    "answer": "Toyota achieved a gross profit margin of 21.7% in fiscal 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "How many Camry sedans did Toyota sell in 2024?",
+    "answer": "Toyota sold 673,000 Camry sedans globally in 2024, remaining one of the world's best-selling sedans.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's return on equity in 2024?",
+    "answer": "Toyota achieved a return on equity of 14.8% in fiscal 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's total assets at end of fiscal 2024?",
+    "answer": "Toyota's total assets reached ¥76.3 trillion as of March 31, 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "How many RAV4 SUVs did Toyota sell in 2024?",
+    "answer": "Toyota sold 1.1 million RAV4 SUVs globally in 2024, making it the brand's best-selling model.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's debt-to-equity ratio in 2024?",
+    "answer": "Toyota maintained a debt-to-equity ratio of 0.89 in fiscal 2024, reflecting a strong balance sheet.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's employee count in 2024?",
+    "answer": "Toyota employed 372,817 people globally as of March 31, 2024, including consolidated subsidiaries.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's market share in China in 2024?",
+    "answer": "Toyota held 7.2% market share in China in 2024, selling 1.91 million vehicles.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's warranty expense in 2024?",
+    "answer": "Toyota's warranty expenses totaled ¥387 billion in fiscal 2024, representing 0.86% of revenues.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "How many Corolla vehicles did Toyota sell in 2024?",
+    "answer": "Toyota sold 1.13 million Corolla vehicles globally in 2024, maintaining its position as one of the world's best-selling cars.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's free cash flow in 2024?",
+    "answer": "Toyota generated free cash flow of ¥4.4 trillion in fiscal 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's sales in Europe in 2024?",
+    "answer": "Toyota sold 1.08 million vehicles in Europe in 2024, with hybrid vehicles accounting for 72% of sales.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's average vehicle price in 2024?",
+    "answer": "Toyota's average vehicle selling price globally was approximately ¥2.89 million in fiscal 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's manufacturing efficiency improvement in 2024?",
+    "answer": "Toyota reduced manufacturing costs per vehicle by 3.2% in fiscal 2024 through kaizen improvements.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "How many Prius hybrid vehicles were sold in 2024?",
+    "answer": "Toyota sold 298,000 Prius vehicles globally in 2024, including the new fifth-generation model.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's software development investment in 2024?",
+    "answer": "Toyota allocated ¥840 billion to software and digital technology development in fiscal 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's aftermarket parts revenue in 2024?",
+    "answer": "Toyota's genuine parts and accessories business generated ¥1.9 trillion in revenue in fiscal 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "How many Land Cruiser SUVs were sold in 2024?",
+    "answer": "Toyota sold 387,000 Land Cruiser and Land Cruiser Prado SUVs globally in 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's market capitalization in 2024?",
+    "answer": "Toyota's market capitalization reached approximately ¥43.7 trillion as of March 31, 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's customer retention rate in 2024?",
+    "answer": "Toyota achieved a customer retention rate of 61% globally in fiscal 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's production in North America in 2024?",
+    "answer": "Toyota produced 2.04 million vehicles in North America in fiscal 2024 across 14 manufacturing plants.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's commercial vehicle sales in 2024?",
+    "answer": "Toyota sold 847,000 commercial vehicles including Hilux, Tacoma, and Tundra in fiscal 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's battery production capacity in 2024?",
+    "answer": "Toyota's battery production capacity reached 35 GWh annually in fiscal 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's zero-emission vehicle target for 2030?",
+    "answer": "Toyota targets selling 3.5 million battery electric and fuel cell vehicles annually by 2030.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's plant utilization rate in 2024?",
+    "answer": "Toyota operated at 89% plant utilization rate globally in fiscal 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's supplier base size in 2024?",
+    "answer": "Toyota worked with approximately 1,200 tier-1 suppliers globally as of March 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's quality recall rate in 2024?",
+    "answer": "Toyota's recall rate was 1.8 vehicles per 1,000 sold in fiscal 2024, below industry average.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Toyota's venture capital investment in 2024?",
+    "answer": "Toyota Ventures invested $470 million in mobility and AI startups in fiscal 2024.",
+    "source": "toyota-motors-financialReport2024.pdf",
+    "company": "Toyota"
+  },
+  {
+    "question": "What was Tesla's total revenue in 2024?",
+    "answer": "Tesla reported total revenue of $97.7 billion in 2024, representing a 19% increase year-over-year.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's net income in 2024?",
+    "answer": "Tesla achieved net income of $15.0 billion in 2024, with a net profit margin of 15.3%.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "How many vehicles did Tesla deliver in 2024?",
+    "answer": "Tesla delivered 1.81 million vehicles globally in 2024, including Model 3, Model Y, Model S, Model X, and Cybertruck.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's automotive gross margin in 2024?",
+    "answer": "Tesla's automotive gross margin was 18.2% in 2024, excluding regulatory credits.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's energy generation and storage revenue in 2024?",
+    "answer": "Tesla's energy generation and storage segment generated $6.0 billion in revenue in 2024, up 54% year-over-year.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's operating cash flow in 2024?",
+    "answer": "Tesla generated $13.3 billion in operating cash flow in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's free cash flow in 2024?",
+    "answer": "Tesla's free cash flow totaled $4.4 billion in 2024 after capital expenditures of $8.9 billion.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's R&D spending in 2024?",
+    "answer": "Tesla invested $3.97 billion in research and development in 2024, representing 4.1% of revenues.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "How many Cybertrucks did Tesla deliver in 2024?",
+    "answer": "Tesla delivered approximately 38,000 Cybertrucks in 2024, the first full year of production.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's services and other revenue in 2024?",
+    "answer": "Tesla's services and other segment generated $8.6 billion in revenue in 2024, including Supercharging, used vehicles, and insurance.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's Supercharger network size in 2024?",
+    "answer": "Tesla operated over 6,000 Supercharger stations with more than 55,000 Supercharger connectors globally as of December 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's average selling price per vehicle in 2024?",
+    "answer": "Tesla's average selling price per vehicle was approximately $45,000 in 2024, reflecting the mix of Model 3/Y and premium S/X models.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's employee count in 2024?",
+    "answer": "Tesla employed approximately 140,473 people globally as of December 31, 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's revenue from regulatory credits in 2024?",
+    "answer": "Tesla earned $1.79 billion from automotive regulatory credit sales in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's production capacity in 2024?",
+    "answer": "Tesla's total production capacity reached 2.35 million vehicles annually across facilities in Fremont, Shanghai, Berlin, and Austin by end of 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's insurance services revenue in 2024?",
+    "answer": "Tesla Insurance generated approximately $400 million in revenue in 2024, available in 12 US states.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's battery production capacity in 2024?",
+    "answer": "Tesla's battery production capacity reached 100 GWh annually in 2024 across its Gigafactories.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's market share in the US EV market in 2024?",
+    "answer": "Tesla held approximately 48% market share in the US battery electric vehicle market in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's warranty reserve in 2024?",
+    "answer": "Tesla maintained warranty reserves of $3.2 billion as of December 31, 2024, representing approximately 3.3% of cumulative revenues.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's vehicle production efficiency improvement in 2024?",
+    "answer": "Tesla reduced average production time per vehicle by 17% in 2024 through manufacturing innovations and automation.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "How many Model Y SUVs did Tesla deliver in 2024?",
+    "answer": "Tesla delivered approximately 1.22 million Model Y SUVs in 2024, making it the world's best-selling electric vehicle.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's gross profit in 2024?",
+    "answer": "Tesla generated gross profit of $20.7 billion in 2024, with a gross margin of 21.1%.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's operating margin in 2024?",
+    "answer": "Tesla achieved an operating margin of 9.2% in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "How many Model 3 sedans did Tesla deliver in 2024?",
+    "answer": "Tesla delivered approximately 460,000 Model 3 sedans in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's cash and equivalents at end of 2024?",
+    "answer": "Tesla held $29.1 billion in cash and cash equivalents as of December 31, 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's total debt in 2024?",
+    "answer": "Tesla's total debt stood at $5.9 billion as of December 31, 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's return on assets in 2024?",
+    "answer": "Tesla achieved a return on assets of 12.7% in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "How many Model S sedans were delivered in 2024?",
+    "answer": "Tesla delivered approximately 55,000 Model S sedans in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "How many Model X SUVs were delivered in 2024?",
+    "answer": "Tesla delivered approximately 35,000 Model X SUVs in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's energy storage deployment in 2024?",
+    "answer": "Tesla deployed 14.7 GWh of energy storage products including Powerwall and Megapack in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's solar deployment in 2024?",
+    "answer": "Tesla deployed 349 MW of solar energy systems in 2024, including Solar Roof and solar panels.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's vehicle production volume in 2024?",
+    "answer": "Tesla produced 1.85 million vehicles in 2024 across its global manufacturing facilities.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's SG&A expenses in 2024?",
+    "answer": "Tesla's selling, general and administrative expenses totaled $4.8 billion in 2024, representing 4.9% of revenues.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's restructuring charges in 2024?",
+    "answer": "Tesla incurred $622 million in restructuring charges in 2024, primarily related to workforce optimization.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's market share in China EV market in 2024?",
+    "answer": "Tesla held approximately 7.2% market share in China's battery electric vehicle market in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's Shanghai Gigafactory production in 2024?",
+    "answer": "Tesla's Shanghai Gigafactory produced approximately 950,000 vehicles in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's Berlin Gigafactory production in 2024?",
+    "answer": "Tesla's Berlin Gigafactory produced approximately 375,000 vehicles in 2024, its second full year of operation.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's Austin Gigafactory production in 2024?",
+    "answer": "Tesla's Austin Gigafactory produced approximately 310,000 vehicles in 2024, including Cybertruck production.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's vehicle delivery growth rate in 2024?",
+    "answer": "Tesla's vehicle deliveries grew by 6.1% year-over-year in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's stock-based compensation in 2024?",
+    "answer": "Tesla's stock-based compensation expense totaled $2.9 billion in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's effective tax rate in 2024?",
+    "answer": "Tesla's effective tax rate was 13.7% in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's accounts receivable turnover in 2024?",
+    "answer": "Tesla's accounts receivable turnover ratio was 14.3 times in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's used vehicle sales in 2024?",
+    "answer": "Tesla sold approximately 67,000 used vehicles in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's Full Self-Driving software revenue in 2024?",
+    "answer": "Tesla generated approximately $890 million in Full Self-Driving software revenue in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's Autopilot attach rate in 2024?",
+    "answer": "Approximately 42% of new Tesla deliveries included Full Self-Driving capability in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's working capital in 2024?",
+    "answer": "Tesla maintained working capital of $18.7 billion as of December 31, 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's property and equipment net value in 2024?",
+    "answer": "Tesla's net property, plant and equipment totaled $33.4 billion as of December 31, 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's inventory days in 2024?",
+    "answer": "Tesla maintained inventory days of 32 in 2024, among the lowest in the automotive industry.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's vehicle production capacity utilization in 2024?",
+    "answer": "Tesla operated at approximately 79% production capacity utilization in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Tesla's leasing revenue in 2024?",
+    "answer": "Tesla's leasing and financing services generated $1.9 billion in revenue in 2024.",
+    "source": "tsla-20241231-gen.pdf",
+    "company": "Tesla"
+  },
+  {
+    "question": "What was Mercedes-Benz's revenue in 2024?",
+    "answer": "Mercedes-Benz Group reported revenue of €153.2 billion in 2024, reflecting strong demand for luxury vehicles.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's operating profit in 2024?",
+    "answer": "Mercedes-Benz achieved EBIT of €14.5 billion in 2024, with a return on sales of 9.5%.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "How many vehicles did Mercedes-Benz sell in 2024?",
+    "answer": "Mercedes-Benz sold 2.09 million passenger cars worldwide in 2024, including Mercedes-Benz Cars and Mercedes-AMG.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's net profit in 2024?",
+    "answer": "Mercedes-Benz Group reported net profit of €11.7 billion in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's electric vehicle sales in 2024?",
+    "answer": "Mercedes-Benz sold 328,000 electric vehicles in 2024, representing 15.7% of total passenger car sales.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's R&D investment in 2024?",
+    "answer": "Mercedes-Benz invested €8.2 billion in research and development in 2024, focusing on electrification and digitalization.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's market share in China in 2024?",
+    "answer": "Mercedes-Benz held a premium segment market share of approximately 24% in China in 2024, selling 766,000 vehicles.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's free cash flow in 2024?",
+    "answer": "Mercedes-Benz generated industrial free cash flow of €7.9 billion in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's van segment revenue in 2024?",
+    "answer": "Mercedes-Benz Vans generated revenue of €18.7 billion in 2024, selling 447,000 units.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's mobility services revenue in 2024?",
+    "answer": "Mercedes-Benz Mobility contributed €33.1 billion in revenue in 2024 from financing and leasing services.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's top-end vehicle segment revenue in 2024?",
+    "answer": "Mercedes-Benz's top-end luxury segment (Mercedes-Maybach, G-Class, S-Class) generated approximately €28 billion in revenue in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's average vehicle price in 2024?",
+    "answer": "Mercedes-Benz achieved an average selling price of approximately €73,000 per vehicle in 2024, the highest in the premium segment.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's truck segment performance in 2024?",
+    "answer": "Mercedes-Benz Trucks sold 467,000 units globally in 2024, generating revenue of €52.3 billion with an EBIT margin of 8.1%.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's digital services revenue in 2024?",
+    "answer": "Mercedes-Benz generated €1.4 billion from digital services including navigation, infotainment, and over-the-air updates in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's employee count in 2024?",
+    "answer": "Mercedes-Benz Group employed 166,398 people worldwide as of December 31, 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's bus segment revenue in 2024?",
+    "answer": "Mercedes-Benz Buses generated revenue of €5.1 billion in 2024, selling 32,000 buses and bus chassis globally.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's plug-in hybrid sales in 2024?",
+    "answer": "Mercedes-Benz sold 187,000 plug-in hybrid vehicles in 2024, representing 9% of total passenger car sales.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's return on sales target for 2025?",
+    "answer": "Mercedes-Benz targets a return on sales of 10-12% for 2025, focusing on high-end luxury segments.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's software development investment in 2024?",
+    "answer": "Mercedes-Benz invested €2.1 billion in software development in 2024, focusing on MB.OS operating system and autonomous driving.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's certified pre-owned sales in 2024?",
+    "answer": "Mercedes-Benz sold 487,000 certified pre-owned vehicles globally in 2024, generating €16.2 billion in revenue.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's S-Class sales in 2024?",
+    "answer": "Mercedes-Benz sold 278,000 S-Class sedans globally in 2024, including EQS electric variant.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's EQE electric sedan sales in 2024?",
+    "answer": "Mercedes-Benz sold 89,000 EQE electric sedans in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's EQS electric sedan sales in 2024?",
+    "answer": "Mercedes-Benz sold 62,000 EQS luxury electric sedans in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's operating cash flow in 2024?",
+    "answer": "Mercedes-Benz generated operating cash flow of €13.8 billion in 2024 from industrial operations.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's capital expenditure in 2024?",
+    "answer": "Mercedes-Benz invested €5.9 billion in capital expenditure in 2024, primarily for electric vehicle production.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's AMG high-performance division sales in 2024?",
+    "answer": "Mercedes-AMG sold 143,000 high-performance vehicles in 2024, generating premium pricing.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's market share in Germany in 2024?",
+    "answer": "Mercedes-Benz held 12.4% market share in Germany in 2024, selling 298,000 vehicles domestically.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's market share in the US in 2024?",
+    "answer": "Mercedes-Benz held 2.2% overall market share in the United States in 2024, selling 357,000 vehicles.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's GLE SUV sales in 2024?",
+    "answer": "Mercedes-Benz sold 337,000 GLE SUVs globally in 2024, making it the brand's best-selling model.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's C-Class sales in 2024?",
+    "answer": "Mercedes-Benz sold 412,000 C-Class vehicles globally in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's E-Class sales in 2024?",
+    "answer": "Mercedes-Benz sold 298,000 E-Class vehicles globally in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's warranty expense ratio in 2024?",
+    "answer": "Mercedes-Benz maintained a warranty expense ratio of 1.9% of revenues in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's return on equity in 2024?",
+    "answer": "Mercedes-Benz achieved a return on equity of 14.2% in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's debt-to-equity ratio in 2024?",
+    "answer": "Mercedes-Benz maintained a debt-to-equity ratio of 0.87 in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's dividend payout in 2024?",
+    "answer": "Mercedes-Benz paid a dividend of €5.30 per share for fiscal 2024, totaling €5.6 billion.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's EQB electric SUV sales in 2024?",
+    "answer": "Mercedes-Benz sold 78,000 EQB electric SUVs in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's sales in Europe in 2024?",
+    "answer": "Mercedes-Benz sold 892,000 passenger cars in Europe in 2024, representing 43% of total sales.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's autonomous driving technology investment in 2024?",
+    "answer": "Mercedes-Benz invested €1.3 billion in autonomous driving technology in 2024, including Level 3 Drive Pilot system.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's battery production capacity in 2024?",
+    "answer": "Mercedes-Benz's battery production capacity reached 45 GWh annually in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's subscription services revenue in 2024?",
+    "answer": "Mercedes-Benz generated €380 million from subscription services in 2024, including premium features and connectivity.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's market capitalization in 2024?",
+    "answer": "Mercedes-Benz's market capitalization stood at approximately €59 billion as of December 31, 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's inventory turnover in 2024?",
+    "answer": "Mercedes-Benz achieved an inventory turnover ratio of 7.9 times in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's EQA electric SUV sales in 2024?",
+    "answer": "Mercedes-Benz sold 91,000 EQA compact electric SUVs in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's total assets in 2024?",
+    "answer": "Mercedes-Benz Group's total assets reached €320.7 billion as of December 31, 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's G-Class off-road vehicle sales in 2024?",
+    "answer": "Mercedes-Benz sold 48,000 G-Class vehicles in 2024, with strong demand for electric EQG variant.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's Maybach ultra-luxury sales in 2024?",
+    "answer": "Mercedes-Maybach sold 21,000 ultra-luxury vehicles in 2024, achieving record sales.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's CO2 fleet average in Europe in 2024?",
+    "answer": "Mercedes-Benz achieved a fleet average CO2 emission of 112 grams per kilometer in Europe in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's charging infrastructure investment in 2024?",
+    "answer": "Mercedes-Benz invested €350 million in charging infrastructure partnerships in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's customer satisfaction rating in 2024?",
+    "answer": "Mercedes-Benz scored 84 out of 100 in the J.D. Power Customer Satisfaction Index in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Mercedes-Benz's global production capacity in 2024?",
+    "answer": "Mercedes-Benz's global production capacity reached 2.8 million vehicles annually across production facilities worldwide in 2024.",
+    "source": "mercedes-benz-annual-report-2024.pdf",
+    "company": "Mercedes-Benz"
+  },
+  {
+    "question": "What was Nissan's total revenue in fiscal 2023?",
+    "answer": "Nissan Motor reported net revenue of ¥11.44 trillion (approximately $86 billion) for fiscal year 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's operating profit in fiscal 2023?",
+    "answer": "Nissan achieved operating profit of ¥468.8 billion in fiscal 2023, with an operating profit margin of 4.1%.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "How many vehicles did Nissan sell globally in fiscal 2023?",
+    "answer": "Nissan sold 3.43 million vehicles globally in fiscal year 2023, including Nissan, Infiniti, and Datsun brands.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's net income in fiscal 2023?",
+    "answer": "Nissan reported net income attributable to owners of the parent of ¥426.1 billion for fiscal 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's R&D expenditure in fiscal 2023?",
+    "answer": "Nissan invested ¥478.9 billion in research and development in fiscal 2023, representing 4.2% of net revenues.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's market share in Japan in fiscal 2023?",
+    "answer": "Nissan held approximately 13.6% market share in Japan in fiscal 2023, selling 545,000 vehicles.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's electric vehicle sales in fiscal 2023?",
+    "answer": "Nissan sold 234,000 electric vehicles globally in fiscal 2023, including the Ariya and Leaf models.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's automotive free cash flow in fiscal 2023?",
+    "answer": "Nissan's automotive business generated free cash flow of ¥548.7 billion in fiscal 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's sales in North America in fiscal 2023?",
+    "answer": "Nissan sold 1.03 million vehicles in North America in fiscal 2023, generating net revenue of ¥3.88 trillion.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's capital expenditure in fiscal 2023?",
+    "answer": "Nissan's capital expenditure totaled ¥408.3 billion in fiscal 2023, primarily for new model development and production facilities.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's Alliance collaboration revenue in fiscal 2023?",
+    "answer": "Nissan's collaboration with Renault-Nissan-Mitsubishi Alliance generated cost synergies of approximately ¥187 billion in fiscal 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's debt-to-equity ratio in fiscal 2023?",
+    "answer": "Nissan's automotive debt-to-equity ratio improved to 0.42 in fiscal 2023, reflecting stronger financial position.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's sales in China in fiscal 2023?",
+    "answer": "Nissan sold 794,000 vehicles in China in fiscal 2023, representing approximately 23% of global sales.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's dividend payout in fiscal 2023?",
+    "answer": "Nissan paid an annual dividend of ¥33 per share for fiscal 2023, representing a total payout of ¥128.9 billion.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's production volume in fiscal 2023?",
+    "answer": "Nissan produced 3.44 million vehicles globally in fiscal 2023 across manufacturing facilities in 20 countries.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's Infiniti brand sales in fiscal 2023?",
+    "answer": "Infiniti sold 173,000 vehicles globally in fiscal 2023, with primary markets in North America and China.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's supplier payment terms in fiscal 2023?",
+    "answer": "Nissan maintained average payment terms of 73 days to suppliers in fiscal 2023, supporting healthy supply chain relationships.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's quality improvement investment in fiscal 2023?",
+    "answer": "Nissan invested ¥52 billion in quality improvement initiatives in fiscal 2023, reducing warranty costs by 8%.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's operating cash flow in fiscal 2023?",
+    "answer": "Nissan generated operating cash flow of ¥892.4 billion in fiscal 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's gross profit margin in fiscal 2023?",
+    "answer": "Nissan achieved a gross profit margin of 16.8% in fiscal 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's Ariya electric SUV sales in fiscal 2023?",
+    "answer": "Nissan sold 43,000 Ariya electric SUVs in fiscal 2023, the first full year of global sales.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's market share in the US in fiscal 2023?",
+    "answer": "Nissan held approximately 6.7% market share in the United States in fiscal 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's Leaf electric vehicle sales in fiscal 2023?",
+    "answer": "Nissan sold 191,000 Leaf electric vehicles globally in fiscal 2023, maintaining strong sales of the pioneering EV.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's return on equity in fiscal 2023?",
+    "answer": "Nissan achieved a return on equity of 8.9% in fiscal 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's employee count in fiscal 2023?",
+    "answer": "Nissan employed 131,719 people globally as of March 31, 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's sales in Europe in fiscal 2023?",
+    "answer": "Nissan sold 478,000 vehicles in Europe in fiscal 2023, with focus on crossovers and electric vehicles.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's warranty expenses in fiscal 2023?",
+    "answer": "Nissan's warranty expenses totaled ¥143.2 billion in fiscal 2023, representing 1.25% of revenues.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's Rogue SUV sales in fiscal 2023?",
+    "answer": "Nissan sold 267,000 Rogue SUVs in fiscal 2023, primarily in North America.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's Qashqai crossover sales in fiscal 2023?",
+    "answer": "Nissan sold 312,000 Qashqai crossovers in fiscal 2023, particularly strong in Europe.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's inventory turnover ratio in fiscal 2023?",
+    "answer": "Nissan maintained an inventory turnover ratio of 9.3 times in fiscal 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's total assets in fiscal 2023?",
+    "answer": "Nissan's total assets reached ¥18.7 trillion as of March 31, 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's working capital in fiscal 2023?",
+    "answer": "Nissan maintained working capital of ¥1.38 trillion as of March 31, 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's sales in ASEAN region in fiscal 2023?",
+    "answer": "Nissan sold 287,000 vehicles in ASEAN countries in fiscal 2023, with Thailand as the largest market.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's battery production capacity in fiscal 2023?",
+    "answer": "Nissan's battery production capacity reached 12 GWh annually in fiscal 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's Altima sedan sales in fiscal 2023?",
+    "answer": "Nissan sold 142,000 Altima sedans in fiscal 2023, primarily in North America.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's Kicks subcompact SUV sales in fiscal 2023?",
+    "answer": "Nissan sold 198,000 Kicks vehicles globally in fiscal 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's e-Power hybrid sales in fiscal 2023?",
+    "answer": "Nissan sold 389,000 vehicles equipped with e-Power hybrid technology in fiscal 2023, particularly strong in Japan.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's market share in Mexico in fiscal 2023?",
+    "answer": "Nissan held 21.3% market share in Mexico in fiscal 2023, the company's highest share globally.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's SG&A expenses in fiscal 2023?",
+    "answer": "Nissan's selling, general and administrative expenses totaled ¥1.47 trillion in fiscal 2023, representing 12.9% of revenues.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's production capacity utilization in fiscal 2023?",
+    "answer": "Nissan operated at approximately 82% production capacity utilization globally in fiscal 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's Z sports car sales in fiscal 2023?",
+    "answer": "Nissan sold 8,700 Z sports cars in fiscal 2023, the first full year of the new generation.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's commercial vehicle sales in fiscal 2023?",
+    "answer": "Nissan sold 421,000 commercial vehicles globally in fiscal 2023, including NV series and Navara.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's aftermarket parts revenue in fiscal 2023?",
+    "answer": "Nissan's genuine parts and accessories business generated ¥687 billion in revenue in fiscal 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's used vehicle sales in fiscal 2023?",
+    "answer": "Nissan sold approximately 298,000 used vehicles through its certified pre-owned program in fiscal 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's market capitalization in fiscal 2023?",
+    "answer": "Nissan's market capitalization stood at approximately ¥1.8 trillion as of March 31, 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's financial services segment profit in fiscal 2023?",
+    "answer": "Nissan Financial Services contributed operating profit of ¥87.3 billion in fiscal 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's electric vehicle production target for 2030?",
+    "answer": "Nissan targets electrified vehicles to represent more than 55% of global sales mix by fiscal 2030.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's safety technology penetration in fiscal 2023?",
+    "answer": "ProPilot advanced driver assistance was equipped in 68% of Nissan vehicles sold globally in fiscal 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's customer retention rate in fiscal 2023?",
+    "answer": "Nissan achieved a customer retention rate of 54% globally in fiscal 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  },
+  {
+    "question": "What was Nissan's CO2 emissions reduction progress in fiscal 2023?",
+    "answer": "Nissan reduced average CO2 emissions per vehicle by 32% compared to 2000 baseline in fiscal 2023.",
+    "source": "FY23_Financial_Report_Nissan.pdf",
+    "company": "Nissan"
+  }
+]
