@@ -32,10 +32,10 @@ class EmailNotificationService:
             from_email: Sender email (or set SENDER_EMAIL env var)
         """
         ##self.api_key = api_key or os.getenv('SENDGRID_API_KEY')
-        self.api_key = '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'
-        ##self.from_email = from_email or os.getenv('SENDER_EMAIL', 'sarkarautomotivebits@gmail.com')
-        self.from_email = 'sarkarautomotivebits@gmail.com'
-        self.api_url = 'https://api.sendgrid.com/v3/mail/send'
+        self.api_key = 'XXXXXXXXXXXXXXXXXXXXX'
+        ##self.from_email = from_email or os.getenv('SENDER_EMAIL', 'XXXXXXXXXXXXX@gmail.com')
+        self.from_email = 'XXXXXXXX@gmail.com'
+        self.api_url = 'https://XXXXX.com/v3/mail/send'
         
         if not self.api_key:
             logger.warning("⚠️ SendGrid API key not configured. Email notifications will be disabled.")
