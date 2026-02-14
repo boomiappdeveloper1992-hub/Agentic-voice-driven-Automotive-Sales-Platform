@@ -1377,7 +1377,7 @@ def create_admin_dashboard(app: AutomotiveAssistantApp):
             gr.update(visible=False),  # Hide admin panel
             "⚠️ Please enter username and password"  # Error message
             )
-        if username == "admin" and password == "admin123":
+        if username == "XXXXXXX" and password == "XXXXXXXXXXXXXX":
            return (
             gr.update(visible=False),  # Hide login
             gr.update(visible=True),   # Show admin panel
