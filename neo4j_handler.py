@@ -20,10 +20,10 @@ class Neo4jHandler:
     
     def __init__(self):
         """Initialize Neo4j connection with enhanced configuration"""
-        self.uri = "neo4j+s://50ad6469.databases.neo4j.io"
-        self.username = "neo4j"
-        self.password = "xr2vCSD0RHLbfb3Bzzlpds04tm3fARSgvGHqZRkfevc"
-        self.database = "neo4j"
+        self.uri = "neo4j+s://XXXXXXXXXXXXXX"
+        self.username = "XXXXXXXXXXXXX"
+        self.password = "XXXXXXXXXXXXXXXXX"
+        self.database = "XXXXXXXXX"
         
         try:
             # Enhanced driver configuration
